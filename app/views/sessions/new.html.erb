@@ -1,0 +1,26 @@
+<section class="section">
+	<div class="container">
+		<div class="columns is-centered">
+			<div class="column is-4">
+				<h2 class="title is-2">Log in</h2>
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+            <div class="field">
+              <div class="control">
+                <%= f.input :username, 
+                            required: false, 
+                            input_html: { class: "input"}, 
+                            wrapper: false,
+                            autofocus: true, 
+                            label_html: { class: "label" } %>
+              </div>
+            </div>
+
+            <%= f.button :submit, "Log in", class:"button is-info is-medium" %>
+          <% end %>
+				  
+				
+			</div>
+		</div>
+	</div>
+</section>
