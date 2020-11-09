@@ -10,22 +10,12 @@
   </head>
 
   <body>
-    <% if flash[:notice] %>
-      <div class="notification is-primary global-notification">
-        <p class="notice"><%= notice %></p>
-      </div>  
-    <% end %>
-    <% if flash[:alert] %>
-      <div class="notification is-danger global-notification">
-        <p class="alert"><%= alert %></p>
-      </div>
-    <% end %>
 
     <nav class="navbar is-primary">
-      <div class="navbar-brand">
-        <%= link_to root_path, class: "navbar-item" do %>
-          <h1 class= "title is-5">Private Events</h1>
-        <%= end %>
+      <div class="navbar-brand ">
+        <%= link_to root_path, class:"navbar-item" do %>
+          <h1 class="title is-5 has-text-white">Private Events</h1>
+        <% end %>
       </div>
     
       <div class="navbar-menu">
@@ -37,25 +27,32 @@
                   Logged in as <%= current_user.username %>  
                 </p>
                 <p class="control">
-                  <%= link_to 'Log Out', logout_path, class:"button" %>
+                  <%= link_to 'Log Out', logout_path, class:"button is-primary" %>
                 </p>
               <% else %>
                 <p class="control">
-                  <%= link_to 'Sign Up', signup_path, class: "button"%>
+                  <%= link_to 'Sign Up', signup_path, class: "button is-primary is-inverted"%>
                 </p>
                 <p class="control">
-                  <%= link_to 'Log In', login_path, class: "button is-inverted" %>
+                  <%= link_to 'Log In', login_path, class: "button is-primary" %>
                 </p>
               <% end %>
             </div>
           </div>
         </div>
-      
       </div>
-    
-    
     </nav>
 
+    <% if flash[:notice] %>
+      <div class="notification is-primary global-notification">
+        <p class="notice"><%= notice %></p>
+      </div>  
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="notification is-danger global-notification">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
 
 
     <%= yield %>

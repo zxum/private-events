@@ -1,0 +1,20 @@
+<div class="column">
+  <h2 class="title is-2">Events</h2>
+  <% @events.each do |event| %>
+    <div class="box">
+      <article class="media">
+        <div class="media-content">
+          <div class="content">
+            <strong><%= event.title %></strong></br>
+            <small>Created by username</small></br></br>
+
+            <p>Date: <%= event.date %></p>
+            <p>Location: <%= event.location %></p>
+
+            <p><%= event.description %></p>
+          </div>
+        </div>
+      </article>
+    </div>
+  <% end %>
+</div>
