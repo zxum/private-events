@@ -28,7 +28,10 @@
                   <span> Logged in as <strong class="has-text-white"><%= current_user.username %></strong></span>  
                 </p>
                 <p class="control">
-                  <%= link_to 'Log Out', logout_path, class:"button is-primary is-inverted" %>
+                  <%= link_to 'New Event', new_event_path, class: "button is-primary is-inverted"%>
+                </p>
+                <p class="control">
+                  <%= link_to 'Log Out', logout_path, class:"button is-primary" %>
                 </p>
               <% else %>
                 <p class="control">
