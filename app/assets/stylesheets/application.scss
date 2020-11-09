@@ -15,4 +15,15 @@
  */
 
 @import "bulma";
-@import "font-awesome";
+.notification {
+    padding: .5rem 2.5rem .5rem 1.5rem;
+}
+
+.navbar-item p.control {
+    align-items: center;
+    display: flex;
+}
+
+.navbar-item div.field {
+    margin-bottom: 0;
+}

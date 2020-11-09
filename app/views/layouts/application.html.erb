@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
@@ -24,10 +25,10 @@
             <div class="field is-grouped">
               <% if current_user %>
                 <p class="control">
-                  Logged in as <%= current_user.username %>  
+                  <span> Logged in as <strong class="has-text-white"><%= current_user.username %></strong></span>  
                 </p>
                 <p class="control">
-                  <%= link_to 'Log Out', logout_path, class:"button is-primary" %>
+                  <%= link_to 'Log Out', logout_path, class:"button is-primary is-inverted" %>
                 </p>
               <% else %>
                 <p class="control">
@@ -44,7 +45,7 @@
     </nav>
 
     <% if flash[:notice] %>
-      <div class="notification is-primary global-notification">
+      <div class="notification is-primary is-light global-notification">
         <p class="notice"><%= notice %></p>
       </div>  
     <% end %>
