@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :signed_in_user
   
   def index
     @users = User.all
