@@ -1,6 +1,32 @@
-<p id="notice"><%= notice %></p>
+<section class="section">
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <div class="box">
+        <h2 class="title"><%= @event.title %></h2>
+        <article class="media">
+          <figure class="media-left">
+            <span class="icon is-large"><i class="fa fa-3x fa-calendar" aria-hidden="true"></i></span>
+            <p class="has-text-primary"><%= @event.date.strftime("%^b") %></p>
+            <p class="has-text-primary"><%= @event.date.strftime("%-d") %></p>
+            <p class="has-text-primary"><%= @event.date.strftime("%Y") %></p>
+            </br>
+            <p class="has-text-primary"><%= @event.date.strftime("%A") %></p>
+            <p class="has-text-primary"><%= @event.date.strftime("%l:%M%p") %></p>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              Created by <%= @event.creator.username %></br>
+              Location: <%= @event.location %></br></br>
+              <%= @event.description %></br></br>
+              <%= link_to 'Edit', edit_event_path(@event) %> |
+              <%= link_to 'Back', events_path %> 
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
