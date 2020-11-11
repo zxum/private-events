@@ -1,14 +1,14 @@
-<div class="column">
+<div class="column is-centered">
   <h2 class="title is-2">Upcoming Events</h2>
   <% @events.upcoming.each do |event| %>
     <div class="box">
       <article class="media">
         <div class="media-content">
           <div class="content">
-            <strong><%= event.title %></strong></br>
-            <small>Created by <%= event.creator.username %></small></br></br>
+            <strong><%= link_to event.title, event_path(event) %></strong></br>
+            <small>Created by <%= link_to event.creator.username, user_path(event.creator) %></small></br></br>
 
-            <p>Date: <%= event.date %></p>
+            <p>Date: <%= event.date.strftime("%^b %-d, %Y") %></p>
             <p>Location: <%= event.location %></p>
 
             <p><%= event.description %></p>
@@ -40,10 +40,10 @@
       <article class="media">
         <div class="media-content">
           <div class="content">
-            <strong><%= event.title %></strong></br>
-            <small>Created by <%= event.creator.username %></small></br></br>
+            <strong><%=  link_to event.title, event_path(event)  %></strong></br>
+            <small>Created by <%= link_to event.creator.username, user_path(event.creator) %></small></br></br>
 
-            <p>Date: <%= event.date %></p>
+            <p>Date: <%= event.date.strftime("%^b %-d, %Y") %></p>
             <p>Location: <%= event.location %></p>
 
             <p><%= event.description %></p>
