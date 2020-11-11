@@ -5,5 +5,5 @@ class Event < ApplicationRecord
 
   #Events can be attend by many Users (also known as attendees)
   has_many :attendee_events
-  has_many :attendees, through: :attendee_events
+  has_many :attendees, through: :attendee_events, source: :user
 end

@@ -5,6 +5,6 @@ class User < ApplicationRecord
 
 
   #Association between Attendee and Events 
-  has_many :attendee_events, foreign_key: "attendee_id"
+  has_many :attendee_events
   has_many :attended_events, through: :attendee_events, source: :event 
 end
