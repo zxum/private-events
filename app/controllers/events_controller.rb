@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  skip_before_action :signed_in_user, only: [:index]
+  skip_before_action :signed_in_user, only: [:index, :show]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
@@ -62,6 +62,32 @@ class EventsController < ApplicationController
     end
   end
 
+
+  def attend 
+    # add an attendee 
+    @event = Event.find(params[:event_id])
+
+    if @event.attendees.include?(current_user) 
+      flash[:notice] = "Already attending!"
+      redirect_to @event
+    elsif !@event.attendees.include?(current_user)
+      @event.attendees << current_user 
+      flash[:notice] = "Added to your events!"
+      redirect_to @event
+    else 
+      flash[:alert] = "Something went wrong!"
+      redirect_to event_path(event)
+    end
+  end
+
+  def cancel_attend
+    @event = Event.find(params[:event_id])
+    @event.attendees.delete(current_user)
+    flash[:notice] = "Removed from your events!"
+    redirect_to @event
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
@@ -70,6 +96,7 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :date, :location, :description)
+      params.require(:event).permit(:title, :date, :location, :description, :id)
     end
+
 end

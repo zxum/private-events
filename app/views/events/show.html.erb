@@ -28,7 +28,8 @@
           <% @event.attendees.each do |attendee| %>
             <p><%= attendee.username%></p>
           <% end %>
-          
+          <%= link_to 'Attend', event_attend_path(@event),  class: "button" %>
+          <%= link_to 'Cancel', event_cancel_attend_path(@event),  class: "button" %>
           </div>
         </article>
       </div>
