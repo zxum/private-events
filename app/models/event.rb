@@ -6,4 +6,8 @@ class Event < ApplicationRecord
   #Events can be attend by many Users (also known as attendees)
   has_many :attendances
   has_many :attendees, through: :attendances, source: :user
+
+  #Upcoming Events 
+  scope :upcoming, -> { where('date >= ?', Date.today) }
+  scope :past, -> { where('date <= ?', Date.today) }
 end
