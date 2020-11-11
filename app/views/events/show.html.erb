@@ -6,12 +6,12 @@
         <article class="media">
           <figure class="media-left">
             <span class="icon is-large"><i class="fa fa-3x fa-calendar" aria-hidden="true"></i></span>
-            <p class="has-text-primary"><%= @event.date.strftime("%^b") %></p>
-            <p class="has-text-primary"><%= @event.date.strftime("%-d") %></p>
-            <p class="has-text-primary"><%= @event.date.strftime("%Y") %></p>
+            <p class="has-text-primary has-text-centered"><%= @event.date.strftime("%^b") %></p>
+            <p class="has-text-primary has-text-centered"><%= @event.date.strftime("%-d") %></p>
+            <p class="has-text-primary has-text-centered"><%= @event.date.strftime("%Y") %></p>
             </br>
-            <p class="has-text-primary"><%= @event.date.strftime("%A") %></p>
-            <p class="has-text-primary"><%= @event.date.strftime("%l:%M%p") %></p>
+            <p class="has-text-primary has-text-centered"><%= @event.date.strftime("%A") %></p>
+            <p class="has-text-primary has-text-centered"><%= @event.date.strftime("%l:%M%p") %></p>
           </figure>
           <div class="media-content">
             <div class="content">
@@ -21,6 +21,14 @@
               <%= link_to 'Edit', edit_event_path(@event) %> |
               <%= link_to 'Back', events_path %> 
             </div>
+          </div>
+
+          <div class="media-right">
+          <h3 class="title">Attendees:</h3>
+          <% @event.attendees.each do |attendee| %>
+            <p><%= attendee.username%></p>
+          <% end %>
+          
           </div>
         </article>
       </div>

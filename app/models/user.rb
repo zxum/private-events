@@ -5,6 +5,6 @@ class User < ApplicationRecord
 
 
   #Association between Attendee and Events 
-  has_many :attendee_events
-  has_many :attended_events, through: :attendee_events, source: :event 
+  has_many :attendances
+  has_many :attended_events, through: :attendances, source: :event 
 end
