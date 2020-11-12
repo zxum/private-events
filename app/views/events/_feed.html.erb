@@ -3,22 +3,26 @@
   <% @events.upcoming.each do |event| %>
     <div class="box">
       <article class="media">
+        <figure class="media-left">
+          <div class="datetime">
+            <p class="has-text-primary has-text-centered has-text-weight-semibold is-size-4"><%= event.date.strftime("%^b") %></p>
+            <p class="has-text-primary has-text-centered has-text-weight-bold is-size-1"><%= event.date.strftime("%-d") %></p>
+            <p class="has-text-primary has-text-centered has-text-weight-semibold is-size-4"><%= event.date.strftime("%Y") %></p>
+          </div>
+        </figure>
+
         <div class="media-content">
           <div class="content">
-            <strong><%= link_to event.title, event_path(event) %></strong></br>
-            <small>Created by <%= link_to event.creator.username, user_path(event.creator) %></small></br></br>
+            <h2 class="title is-4"><%= link_to event.title, event_path(event)%></h2>
+            Created by <strong><%= link_to event.creator.username, user_path(event.creator) %></strong></br>
+            Location: <%= event.location %>
+          </div>
+        </div>
 
-            <p>Date: <%= event.date.strftime("%^b %-d, %Y") %></p>
-            <p>Location: <%= event.location %></p>
-
-            <p><%= event.description %></p>
-
-    <% if user_signed_in? && current_user.id == event.creator_id %>
+        <div class="media-right">
+            <% if user_signed_in? && current_user.id == event.creator_id %>
             <nav class="level">
               <div class="level-left is-mobile">
-                <%= link_to event, class: "level-item" do %>
-                  <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
-                <% end %>
                 <%= link_to edit_event_path(event), class: "level-item" do %>
                   <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
                 <% end %>
@@ -27,8 +31,7 @@
                 <% end %>
               </div>
             </nav>
-    <% end %>
-          </div>
+            <% end %>
         </div>
       </article>
     </div>
@@ -38,22 +41,26 @@
   <% @events.past.each do |event| %>
     <div class="box">
       <article class="media">
+        <figure class="media-left">
+          <div class="datetime">
+            <p class="has-text-primary has-text-centered has-text-weight-semibold is-size-4"><%= event.date.strftime("%^b") %></p>
+            <p class="has-text-primary has-text-centered has-text-weight-bold is-size-1"><%= event.date.strftime("%-d") %></p>
+            <p class="has-text-primary has-text-centered has-text-weight-semibold is-size-4"><%= event.date.strftime("%Y") %></p>
+          </div>
+        </figure>
+
         <div class="media-content">
           <div class="content">
-            <strong><%=  link_to event.title, event_path(event)  %></strong></br>
-            <small>Created by <%= link_to event.creator.username, user_path(event.creator) %></small></br></br>
+            <h2 class="title is-4"><%= link_to event.title, event_path(event)%></h2>
+            Created by <strong><%= link_to event.creator.username, user_path(event.creator) %></strong></br>
+            Location: <%= event.location %>
+          </div>
+        </div>
 
-            <p>Date: <%= event.date.strftime("%^b %-d, %Y") %></p>
-            <p>Location: <%= event.location %></p>
-
-            <p><%= event.description %></p>
-
-    <% if user_signed_in? && current_user.id == event.creator_id %>
+        <div class="media-right">
+            <% if user_signed_in? && current_user.id == event.creator_id %>
             <nav class="level">
               <div class="level-left is-mobile">
-                <%= link_to event, class: "level-item" do %>
-                  <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
-                <% end %>
                 <%= link_to edit_event_path(event), class: "level-item" do %>
                   <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
                 <% end %>
@@ -62,8 +69,7 @@
                 <% end %>
               </div>
             </nav>
-    <% end %>
-          </div>
+            <% end %>
         </div>
       </article>
     </div>
