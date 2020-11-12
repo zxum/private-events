@@ -12,7 +12,7 @@ Authentication is rudimentary. Users are able to create accounts with just an us
 Although design was not a requirement, basic styling was added using the [Bulma](https://bulma.io/) gem, which is a modern CSS framework based on Flexbox, built for Rails.
 
 ## Demo 
-TBA
+![Demo of Private Events site](https://raw.githubusercontent.com/zxum/private-events/master/app/assets/images/private-events-demo.gif?token=AOFZ43DU7PD6ICY2K3XWPUC7VVPL4)
 
 ## Reflections
 The project was challenging, but it was manageable by methodically dividing main features into smaller and simpler problems. For this project, I focused on navigating the MVC and gained incredible insights into the magic of Rails. 
