@@ -1,6 +1,7 @@
 ![logo](app/assets/images/private_events_banner.png)
 
 # Project: Private Events 
+![badge](https://img.shields.io/badge/ruby-2.7.0-brightgreen)
 
 A project built for [The Odin Project Ruby on Rails Course](https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations) to implement learnings about Active Record Associations. The goal is to create an event manager site, which allows users to create events and invite other users.
 
@@ -21,6 +22,10 @@ You can log in as any of the following
 * chefpizza
 
 ![Demo of Private Events site](app/assets/images/private-events-demo.gif)
+
+## Gems Used 
+* [Bulma](https://bulma.io/)
+* [Simple Forms](https://github.com/heartcombo/simple_form)
 
 ## Reflections
 The project was challenging, but it was manageable by methodically dividing main features into smaller and simpler problems. For this project, I focused on navigating the MVC and gained incredible insights into the magic of Rails. 
